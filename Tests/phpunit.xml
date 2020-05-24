@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<phpunit
+    stopOnError="false"
+    stopOnFailure="false"
+    stopOnIncomplete="false"
+    stopOnSkipped="false"
+    colors="false"
+    verbose="true"
+    >
+
+    <testsuites>
+      <testsuite name="unit">
+        <directory>./*</directory>
+      </testsuite>
+    </testsuites>
+</phpunit>

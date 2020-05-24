@@ -1,0 +1,19 @@
+{
+    "name": "php-collection",
+    "description": "PHP Collection Implementation",
+    "keywords": ["php", "collection", "countable", "iterator", "array"],
+    "authors": [
+        {
+            "name": "Marcel V. Kohls",
+            "email": "marcel.v.kohls@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^7"
+    }
+}
