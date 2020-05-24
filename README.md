@@ -17,3 +17,5 @@ public function getAllCats(AnimalCollection $animals):CatCollection
   /** ... **/
 }
 ```
+## About the implementation
+This implementation covers the interfaces [Countable](https://www.php.net/manual/en/class.countable.php), [Iterator](https://www.php.net/manual/en/class.iterator.php) and [ArrayAccess](https://www.php.net/manual/en/class.arrayaccess.php).
