@@ -125,28 +125,8 @@ abstract class AbstractCollection implements \Countable, \Iterator, \ArrayAccess
         unset($this->values[$offset]);
     }
 
-    /**
-     * @return array
-     */
-    public function getIndexes(): array
+    public function asArray():array
     {
-        return $this->indexes;
-    }
-
-    /**
-     *
-     * @param mixed $object
-     */
-    public function contains($object):bool
-    {
-        return in_array($object, $this->values, TRUE);
-    }
-
-    /**
-     * @param mixed $key
-     */
-    public function hasKey($key):bool
-    {
-        return in_array($key, $this->indexes, FALSE);
+        return $this->values;
     }
 }

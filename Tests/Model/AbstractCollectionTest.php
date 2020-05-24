@@ -130,48 +130,13 @@ class AbstractCollectionTest extends TestCase
         $this->assertNull($collection->offsetGet("foo"), "element MUST be null");
     }
 
-    /**
-     * @covers AbstractCollection::getIndexes
-     */
-    public function testGetIndexes()
-    {
-        $collection = $this->createConcreteCollection(["foo", "bar", "baz"]);
-
-        $this->assertEquals([0, 1, 2], $collection->getIndexes(), "indexes MUST be equal 0,1,2");
-    }
-
-    /**
-     * @covers AbstractCollection::contains
-     */
-    public function testContains()
-    {
-        $dummyClass = new \stdClass();
-        $dummyClass->foo = "foo";
-        $dummyClass->bar = "bar";
-
-        $collection = $this->createConcreteCollection([$dummyClass]);
-
-        $this->assertTrue($collection->contains($dummyClass), "collection MUST contain dummy object");
-
-        $collection->offsetUnset(0);
-        $this->assertFalse($collection->contains($dummyClass), "collection MUST NOT contain dummy object");
-
-        $collection->offsetSet(0, new \stdClass());
-        $this->assertFalse($collection->contains($dummyClass), "collection MUST NOT contain dummy object");
-    }
-
-    /**
-     * @covers AbstractCollection::hasKey
-     */
-    public function testHasKey()
+    public function testArrayHasKey()
     {
         $collection = $this->createConcreteCollection();
+        $collection["foo"] = new \stdClass();
 
-        $collection->offsetSet("foo", new \stdClass());
-
-        $this->assertTrue($collection->hasKey("foo"), "collection MUST have key foo");
-
-        $this->assertFalse($collection->hasKey("bar"), "collection MUST NOT have key bar");
+        $this->assertArrayHasKey("foo", $collection, "collection MUST have key foo");
+        $this->assertArrayNotHasKey("bar", $collection, "collection MUST NOT have key bar");
     }
 
     private function createConcreteCollection(array $collectionInput = []): AbstractCollection
